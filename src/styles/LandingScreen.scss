@@ -1,0 +1,121 @@
+.LandingScreen {
+    height: 100vh;
+    background-image: url("../assets/img/site-movie-bg.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    .blur-bg {
+        width: 100%;
+        height: 100%;
+        padding: 30px 5%;
+        background: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.7),
+                rgba(0, 0, 0, 0.384) 95%);
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+
+            .left {
+                .logo {
+                    height: 50px;
+                    object-fit: contain;
+                }
+            }
+
+            .right {
+                button {
+                    height: 32px;
+                    color: white;
+                    border-radius: 0.1875rem;
+                    background: #e50914;
+                    border: none;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .main-content {
+            width: 100%;
+            height: 70%;
+            color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            h1 {
+                text-align: center;
+                width: 100%;
+                font-size: 3.4rem;
+                font-weight: bold;
+            }
+
+            h2 {
+                margin-top: 20px;
+                text-align: center;
+                font-size: 1.7rem;
+            }
+
+            h2:nth-child(3) {
+                font-size: 1.5rem;
+            }
+
+            form {
+                width: 100%;
+                margin-top: 20px;
+
+                display: flex;
+                justify-content: center;
+
+                input {
+                    width: 450px;
+                    min-width: 20%;
+                    padding: 0 15px;
+                    background: #00000062;
+                    border: 1px solid #6a6a6a;
+                    border-radius: 0.1875rem;
+                    outline: none;
+                    color: white;
+
+                    &:active,
+                    &:focus {
+                        border: 1px solid white;
+                        transition: 0.3s;
+                    }
+
+                    &::placeholder {
+                        color: white;
+                    }
+                }
+
+
+                button {
+
+                    width: 200px;
+                    height: 60px;
+                    color: white;
+                    border-radius: 0.1875rem;
+                    background: #e50914;
+                    border: none;
+                    font-weight: 600;
+                    font-size: 1.6rem;
+                    border-radius: 0.1875rem;
+                    margin-left: 10px;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: white;
+                        opacity: 0.8;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+
+
+    }
+}
