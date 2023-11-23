@@ -1,4 +1,5 @@
 .LandingScreen {
+    width: 100%;
     height: 100vh;
     background-image: url("../assets/img/site-movie-bg.jpeg");
     background-position: center;
@@ -9,33 +10,10 @@
     .blur-bg {
         width: 100%;
         height: 100%;
-        padding: 30px 5%;
+        padding: 20px 5%;
         background: linear-gradient(to bottom,
                 rgba(0, 0, 0, 0.7),
                 rgba(0, 0, 0, 0.384) 95%);
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-
-            .left {
-                .logo {
-                    height: 50px;
-                    object-fit: contain;
-                }
-            }
-
-            .right {
-                button {
-                    height: 32px;
-                    color: white;
-                    border-radius: 0.1875rem;
-                    background: #e50914;
-                    border: none;
-                    font-weight: bold;
-                }
-            }
-        }
 
         .main-content {
             width: 100%;
@@ -64,7 +42,7 @@
                 font-size: 1.5rem;
             }
 
-            form {
+            .form {
                 width: 100%;
                 margin-top: 20px;
 
@@ -94,22 +72,21 @@
 
 
                 button {
-
                     width: 200px;
-                    height: 60px;
+                    height: 50px;
                     color: white;
                     border-radius: 0.1875rem;
                     background: #e50914;
                     border: none;
-                    font-weight: 600;
-                    font-size: 1.6rem;
+                    font-weight: bold;
+                    font-size: 1.3rem;
                     border-radius: 0.1875rem;
                     margin-left: 10px;
 
                     &:hover {
                         cursor: pointer;
                         color: white;
-                        opacity: 0.8;
+                        opacity: 0.9;
                         transition: 0.2s;
                     }
                 }

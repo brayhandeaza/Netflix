@@ -1,0 +1,53 @@
+.movies {
+    width: 100%;
+    height: 100vh;
+    color: white;
+
+    position: relative;
+    top: -250px;
+
+    h1 {
+        padding: 0 5.5%;
+        color: #fff;
+        font-size: 1.8rem;
+        text-transform: capitalize;
+    }
+
+
+    .movie-list {
+        width: 100vw;
+        height: 100%;
+        padding: 0px 5%;
+        display: flex;
+
+        overflow-x: scroll !important;
+        scroll-behavior: smooth;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        .movie {
+            min-width: 200px !important;
+            height: 300px;
+            margin: 10px;
+            margin-bottom: 40px;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.8;
+                transform: scale(1.05);
+                transition: 0.3s;
+            }
+
+            img {
+                width: 100%;
+                height: 300px;
+                border-radius: 15px;
+            }
+        }
+    }
+
+
+
+}

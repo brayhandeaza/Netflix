@@ -1,168 +1,120 @@
 .SignUp {
-    height: 100vh;
-    background-image: url("../assets/img/site-movie-bg.jpeg");
+    height: 80vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
-    .blur-bg {
-        width: 100%;
-        height: 100%;
-        padding: 30px 5%;
-        background: linear-gradient(to bottom,
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0.384) 95%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        .header {
-            display: flex;
-            justify-content: space-between;
+    
+    
+    .form {
+        width: 450px;
+        // min-height: 500px;
+        background: rgba(0, 0, 0, 0.75);
+        padding: 50px;
+        color: white;
+        border-radius: 0.1875rem;
 
-            .left {
-                .logo {
-                    height: 50px;
-                    object-fit: contain;
-                }
+        display: flex;
+        flex-direction: column;
+
+        input {
+            width: 100%;
+            height: 55px;
+            padding: 0 10px;
+            margin-bottom: 25px;
+            border: none;
+            background: #333333;
+            border-radius: 0.1875rem;
+            color: white;
+            outline: none;
+
+            &:focus {
+                border-bottom: 2px solid tomato;
+                transition: 0.3s;
             }
 
-            .right {
-                button {
-                    height: 32px;
-                    color: white;
-                    border-radius: 0.1875rem;
-                    background: #e50914;
-                    border: none;
-                    font-weight: bold;
-                }
+        }
+
+
+        h4 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            font-weight: bold;
+
+        }
+
+
+
+        button {
+            height: 55px;
+            background: #e50914;
+            font-weight: 600;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 0.1875rem;
+
+            &:hover {
+                cursor: pointer;
+                color: white;
+                opacity: 0.8;
+                transition: 0.2s;
             }
         }
 
-        .main {
-            width: 100%;
-            height: 75%;
 
-
+        .checkbox {
+            height: 40px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            margin-top: 10px;
 
-            form {
-                width: 430px;
-                height: 500px;
-                background: rgba(0, 0, 0, 0.7);
-                padding: 50px;
-                color: white;
+            input {
+                width: 17px;
+                margin: 0;
+                background: #b3b3b3;
+            }
 
-                display: flex;
-                flex-direction: column;
+            label {
+                padding: 0 5px;
+                color: #b3b3b3;
 
-                input {
-                    width: 100%;
-                    height: 55px;
-                    padding: 0 10px;
-                    margin-bottom: 25px;
-                    border: none;
-                    background: #333333;
-                    border-radius: 0.1875rem;
-                    color: white;
-                    outline: none;
-
-                    &:focus {
-                        border-bottom: 2px solid tomato;
-                        transition: 0.3s;
-                    }
-
+                &:hover {
+                    cursor: pointer;
+                    transition: 0.3s;
                 }
 
-
-                h4 {
-                    font-size: 2rem;
-                    margin-bottom: 40px;
-                    font-weight: bold;
-
-                }
-
-                
-
-                button {
-                    width: 100%;
-                    height: 50px;
-                    border-radius: 0.1875rem;
-                    background: #e50914;
-                    border: none;
-                    font-weight: 600;
-                    font-size: 1rem;
-                    border-radius: 0.1875rem;
-                    color: white;
-
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    span {
-                        // margin: 0;
-                        // padding: 0;
-                        color: white;
-                    }
+                a {
+                    text-decoration: none;
 
                     &:hover {
-                        cursor: pointer;
-                        color: white;
-                        opacity: 0.8;
-                        transition: 0.2s;
+                        text-decoration: underline;
+                        transition: 2ms;
                     }
-                }
-
-                .checkboxs {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-
-                    margin-top: 20px;
-
-                    .checkbox {
-                        height: 40px;
-                        display: flex;
-                        align-items: center;
-
-
-                        input {
-                            width: 17px;
-                            background: #b3b3b3;
-
-                        }
-
-                        span {
-                            // margin-top: 5px;
-                            padding: 0 5px;
-                            color: #b3b3b3;
-
-                            a {
-                                text-decoration: none;
-
-                                &:hover {
-                                    text-decoration: underline;
-                                    transition: 2ms;
-                                }
-                            }
-                        }
-
-                        a {
-                            color: #b3b3b3;
-
-                            &:hover {
-                                text-decoration: underline;
-                                cursor: pointer;
-                            }
-                        }
-                    }
-
                 }
             }
+
         }
 
-    }
-}
 
-span {
-    color: white;
+
+        .link-to {
+            padding: 0 5px;
+
+            &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+        }
+    }
 }

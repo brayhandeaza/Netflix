@@ -1,0 +1,53 @@
+.Header {
+    width: 100%;
+    padding: 20px 5%;
+    z-index: 1000;
+    
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+        .logo {
+            height: 30px;
+            object-fit: contain;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.8;
+                transition: 0.2s;
+            }
+        }
+    }
+
+    .right {
+        img {
+            border-radius: 5px;
+            box-shadow: 0 0 5 1px black;
+
+            &:hover {
+                cursor: pointer;
+                opacity: 0.8;
+                transition: 0.2s;
+            }
+        }
+    }
+
+
+}
+
+:where(.css-dev-only-do-not-override-nllxry).ant-dropdown .ant-dropdown-menu,
+:where(.css-dev-only-do-not-override-nllxry).ant-dropdown-menu-submenu .ant-dropdown-menu {
+    background-color: rgba(26, 20, 20, 0.7) !important;
+    color: white !important;
+
+    .logout {
+        
+        &:hover {
+            cursor: pointer;
+            opacity: 0.8;
+            transition: 0.3s;
+           
+        }
+    }
+}
+

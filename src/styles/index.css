@@ -1,3 +1,23 @@
 :root {
-  background-color: #242424;
+	background-color: #242424;
+}
+
+
+.scrollmenu {
+	width: 100%;
+	display: flex;
+	background-color: #333;
+	overflow-y: scroll !important;
+}
+
+
+.movie-dropdown {
+	border-radius: 20px;
+	width: 700px;
+	background: transparent;
+}
+
+
+.ant-dropdown-arrow::before {
+	background: #000 !important;
 }

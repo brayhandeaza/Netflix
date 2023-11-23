@@ -10,6 +10,9 @@ export default defineConfig({
 			'@screens': path.resolve(__dirname, './src/screens'),
 			'@assets': path.resolve(__dirname, './src/assets'),
 			'@styles': path.resolve(__dirname, './src/styles'),
+			'@contexts': path.resolve(__dirname, './src/contexts'),
+			'@redux': path.resolve(__dirname, './src/redux'),
+			'@constants': path.resolve(__dirname, './src/constants')
 		}
 	},
 	plugins: [react()]

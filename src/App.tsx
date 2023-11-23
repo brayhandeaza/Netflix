@@ -1,16 +1,30 @@
 import '@styles/App.css'
-import { LandingScreen } from '@screens'
+import { LandingScreen, HomeScreen } from '@screens'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { SignUp } from '@components'
+import { useContext } from 'react'
+import { MainContext, MainContextType } from './contexts/MainContext'
+import { Login, Player } from '@components'
+
 
 const App: React.FC = () => {
+	const { isAuthenticated }: MainContextType = useContext<any>(MainContext)
+
 
 	return (
 		<div className='App'>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<LandingScreen />} />
-					<Route path="/login" element={<SignUp />} />
+					{isAuthenticated ? (
+						<Route>
+							<Route path="/" element={<HomeScreen />} />
+							<Route path="/watch/:movieId/:title" element={<Player />} />
+						</Route>
+					) : (
+						<Route>
+							<Route path="/" element={<LandingScreen />} />
+							<Route path="/login" element={<Login />} />
+						</Route>
+					)}
 				</Routes>
 			</BrowserRouter>
 		</div>

@@ -1,53 +1,55 @@
 import "@styles/SignUp.scss"
-import { logo } from "@assets"
-import { useState } from "react"
-import { Button } from "antd"
-import { Link } from "react-router-dom"
+import { Header } from "@components";
+import { MainContext, MainContextType } from "../contexts/MainContext";
+import { useContext, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
-const SignUp = () => {
-    const [isEmailActive, setIsEmailActive] = useState(false)
+
+const SignUp: React.FC = () => {
+    const { email, password, setEmail }: MainContextType = useContext<any>(MainContext)
+    const location = useLocation()
+    const params = new URLSearchParams(location.search)
+    const emailParam = params.get("email");
 
 
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        e.preventDefault()
+    }
+
+    const onClick = () => {
 
     }
+
+
+    useEffect(() => {
+        if (emailParam) {
+            setEmail(emailParam)
+        }
+    }, [])
+
 
     return (
         <div className="SignUp">
             <div className="blur-bg">
-                <div className="header">
-                    <div className="left">
-                        <img className="logo" src={logo} alt="netflix logo" />
-                    </div>
-                </div>
+                <Header />
                 <div className="main">
-                    <form>
+                    <div className="form">
                         <h4>Sigh In</h4>
-                        <input onChange={onChange} type="email" placeholder="Email address" />
-                        <input onChange={onChange} type="email" placeholder="Email address" />
+                        <input onChange={onChange} type="text" placeholder="Full Name" />
+                        <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email address" />
+                        <input value={password} onChange={onChange} type="password" placeholder="Password" />
+                        <input onChange={onChange} type="password" placeholder="Confirm Password" />
 
-                        <Button>{"Sign In"}</Button>
+                        <button onClick={onClick}>Log in</button>
 
-                        <div className="checkboxs">
-                            <div className="checkbox">
-                                <input type="checkbox" name="" id="" placeholder="Email address" />
-                                <span>Remember me</span>
-                            </div>
-                            <div className="checkbox">
-                                <span>
-                                    <Link to="/login">
-                                        <a>Need help?</a>
-                                    </Link>
-                                </span>
-                            </div>
+                        <div className="mt-3">
+                            <span style={{ color: "#b3b3b3" }}>Already have an account?</span>
+                            <span className="link-to" onClick={onClick}>
+                                <Link  style={{ color: "white" }} to="/login">Log in now</Link>
+                            </span>
                         </div>
-
-                        <div>
-                            <span>New to Netflix?</span>
-                            <Link to="/login">Sign up now</Link>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
