@@ -9,7 +9,7 @@ interface JWTType {
     iat: number
 }
 
-type MainContextType = {
+export type MainContextType = {
     children?: React.ReactNode,
     isAuthenticated?: boolean,
     isLogin?: boolean,
@@ -18,22 +18,21 @@ type MainContextType = {
     password?: string,
     confirmPassword?: string,
     setConfirmPassword?: (_password: string) => void,
-    setAuthenticated?: (isAuthenticated: boolean) => void,
-    setEmail?: (email: string) => void,
-    setPassword?: (password: string) => void,
+    setAuthenticated?: (_isAuthenticated: boolean) => void,
+    setEmail: (email: string) => void,
+    setPassword: (password: string) => void,
     setLogin?: (isLogin: boolean) => void,
     setSignIn?: (isSignIn: boolean) => void,
-    login?: () => void
-
-}
-
-export type {
-    MainContextType
 }
 
 
+export const initialMainContextState: MainContextType = {
+    setEmail: (_email: string) => { },
+    setPassword: (_password: string) => { },
+}
 
-export const MainContext = createContext<MainContextType>({})
+
+export const MainContext = createContext<MainContextType>(initialMainContextState)
 
 const MainContextProvider: React.FC<MainContextType> = ({ children }) => {
     const [isLogin, setLogin] = useState<boolean>(false)
@@ -42,6 +41,7 @@ const MainContextProvider: React.FC<MainContextType> = ({ children }) => {
     const [password, setPassword] = useState<string>('')
     const [confirmPassword, setConfirmPassword] = useState<string>('')
     const [isAuthenticated, setAuthenticated] = useState<boolean>(false)
+    const [isPlaying, setIsPlaying] = useState<boolean>(false)
 
     const getUser = () => {
         const token = localStorage.getItem('sessionId')
@@ -73,6 +73,8 @@ const MainContextProvider: React.FC<MainContextType> = ({ children }) => {
         password,
         isAuthenticated,
         confirmPassword,
+        isPlaying,
+        setIsPlaying,
         setConfirmPassword,
         setAuthenticated,
         setEmail,

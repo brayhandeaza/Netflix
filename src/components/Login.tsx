@@ -1,15 +1,19 @@
 import "@styles/SignUp.scss"
 import React, { useContext } from "react";
-import { MainContext, MainContextType } from "../contexts/MainContext";
+import { MainContext, MainContextType } from "@contexts";
+import jwtEncode from "jwt-encode";
 
 
 const Login: React.FC = () => {
 
-    const { email, password, setEmail, setPassword, login }: MainContextType = useContext<any>(MainContext)
+    const { email, password, setEmail, setPassword }: MainContextType = useContext<any>(MainContext)
 
     const onClick: React.MouseEventHandler<HTMLButtonElement> = () => {
         if ((email == "email@test.com" && password == "password")) {
-            login()
+            const token = jwtEncode({ email, password }, 'secret')
+            localStorage.setItem('sessionId', token)
+
+            window.location.reload()
         }
     }
 

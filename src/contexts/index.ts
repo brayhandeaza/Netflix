@@ -1,4 +1,4 @@
-import MainContextProvider, { MainContext, MainContextType } from "./MainContext"
+import MainContextProvider, { MainContext, MainContextType, initialMainContextState } from "./MainContext"
 import FetchContextProvider, { FetchContext, FetchContextType } from "./FetchContext"
 
 
@@ -8,6 +8,7 @@ import FetchContextProvider, { FetchContext, FetchContextType } from "./FetchCon
 export {
     MainContext,
     MainContextProvider,
+    initialMainContextState,
     FetchContext,
     FetchContextProvider,
 

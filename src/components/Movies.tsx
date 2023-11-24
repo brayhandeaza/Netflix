@@ -37,7 +37,7 @@ const Movies: React.FC<{ isPlayer?: boolean }> = ({ isPlayer }) => {
             key: '0',
             label: (
                 <div style={{ borderRadius: 20, height: 300 }} >
-                    <YouTube
+                    <YouTube                       
                         videoId={videoId}
                         onReady={(e) => e.target.playVideo()}
                         opts={{
@@ -68,7 +68,7 @@ const Movies: React.FC<{ isPlayer?: boolean }> = ({ isPlayer }) => {
                     <h1>{promises[key]}</h1>
                     <div className="movie-list">
                         {list.map((movie: any, index: number) => (
-                            <Dropdown menu={{ items }} onOpenChange={() => onOpenChange(movie)} arrow overlayClassName='movie-dropdown' destroyPopupOnHide>
+                            <Dropdown menu={{ items }} onOpenChange={() => onOpenChange(movie)} overlayClassName='movie-dropdown' destroyPopupOnHide>
                                 <div onClick={() => onClick(movie)} key={index + "movie"} className="movie">
                                     <img src={POSTER_URL + movie?.poster_path} alt="movie" />
                                 </div>
