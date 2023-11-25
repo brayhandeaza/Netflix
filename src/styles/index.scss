@@ -10,6 +10,11 @@
 	overflow-y: scroll !important;
 }
 
+.dropdown-profile {
+	background: rgb(0, 0, 0) !important;
+	border-radius: 10px !important;
+}
+
 
 .movie-dropdown {
 	border-radius: 20px;
@@ -20,4 +25,9 @@
 
 .ant-dropdown-arrow::before {
 	background: #000 !important;
+}
+
+
+.ant-dropdown-menu {
+	background: red !important;
 }

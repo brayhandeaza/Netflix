@@ -16,7 +16,7 @@ const items: MenuProps['items'] = [
     {
         key: '1',
         label: (
-            <span onClick={onClick} className='logout' style={{ color: 'white', backgroundColor: 'black' }}>Logout</span>
+            <span onClick={onClick} className='logout' style={{ color: 'white'}}>Logout</span>
         )
     }
 ]
@@ -33,9 +33,11 @@ const Header = ({ bgColor }: { bgColor?: string }) => {
                 </Link>
             </div>
             <div className="right">
-                {isAuthenticated && <Dropdown placement="bottomRight" className='dropdown-profile' trigger={['click']} menu={{ items }} arrow>
-                    <img src={profile} alt="profile-icon" />
-                </Dropdown>}
+                {isAuthenticated && (
+                    <Dropdown  placement="bottomRight" overlayClassName='dropdown-profile' trigger={['click']} menu={{ items }} arrow>
+                        <img src={profile} alt="profile-icon" />
+                    </Dropdown>
+                )}
             </div>
         </div>
     )
