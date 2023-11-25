@@ -32,6 +32,10 @@ const HomeScreen: React.FC = () => {
         },
     }
 
+    const substring = (str: string, n: number) => {
+        return (str?.length > n) ? str.substring(0, n - 1) + '...' : str
+    }
+
     return (
         <div className="HomeScreen">
             <div className="blur-bg">
@@ -45,7 +49,7 @@ const HomeScreen: React.FC = () => {
 
                     <div className="movie-details">
                         <h1 className="movie-title">{movie?.original_title}</h1>
-                        <p className="movie-overview">{movie?.overview}</p>
+                        <p className="movie-overview">{substring(movie?.overview, 350)}</p>
                         <button onClick={onPlay}>Play</button>
                     </div>
                 </div>
