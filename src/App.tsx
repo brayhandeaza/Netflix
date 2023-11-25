@@ -1,4 +1,4 @@
-import '@styles/App.css'
+import '@styles/App.scss'
 import { LandingScreen, HomeScreen } from '@screens'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useContext } from 'react'

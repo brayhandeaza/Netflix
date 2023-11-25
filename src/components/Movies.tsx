@@ -20,7 +20,7 @@ const Movies: React.FC<{ isPlayer?: boolean }> = ({ isPlayer }) => {
 
 
     const onClick = (movie: MovieType) => {
-        const title = movie?.title?.replace(/[ ]/g, '-')
+        const title = movie?.title?.replace(/[ ]/g, '-').toLocaleLowerCase()
         window.location.href = `/watch/${movie?.id}/${title}`
     }
 
