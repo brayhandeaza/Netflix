@@ -16,7 +16,7 @@ const items: MenuProps['items'] = [
     {
         key: '1',
         label: (
-            <span onClick={onClick} className='logout' style={{ color: 'white' }}>Logout</span>
+            <span onClick={onClick} className='logout' style={{ color: 'white', backgroundColor: 'black' }}>Logout</span>
         )
     }
 ]
