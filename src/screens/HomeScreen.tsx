@@ -2,7 +2,6 @@ import "@styles/HomeScreen.scss"
 import { Header, Movies } from "@components";
 import { POSTER_URL } from "@constants";
 import { useContext } from "react";
-import YouTube from 'react-youtube';
 import { FetchContext, FetchContextType } from "@contexts";
 
 
@@ -15,22 +14,6 @@ const HomeScreen: React.FC = () => {
         window.location.href = `/watch/${movie?.id}/${title}`
     }
 
-    // const opts = {
-    //     height: '100%',
-    //     width: '100%',
-    //     playerVars: {
-
-    //         // https://developers.google.com/youtube/player_parameters
-    //         autoplay: 1,
-    //         controls: 0,
-    //         showinfo: 0,
-    //         rel: 0,
-    //         modestbranding: 0,
-    //         loop: 0,
-    //         mute: 1,
-    //         title: 0
-    //     },
-    // }
 
     const substring = (str: string, n: number) => {
         return (str?.length > n) ? str.substring(0, n - 1) + '...' : str
