@@ -15,22 +15,22 @@ const HomeScreen: React.FC = () => {
         window.location.href = `/watch/${movie?.id}/${title}`
     }
 
-    const opts = {
-        height: '100%',
-        width: '100%',
-        playerVars: {
+    // const opts = {
+    //     height: '100%',
+    //     width: '100%',
+    //     playerVars: {
 
-            // https://developers.google.com/youtube/player_parameters
-            autoplay: 1,
-            controls: 0,
-            showinfo: 0,
-            rel: 0,
-            modestbranding: 0,
-            loop: 0,
-            mute: 1,
-            title: 0
-        },
-    }
+    //         // https://developers.google.com/youtube/player_parameters
+    //         autoplay: 1,
+    //         controls: 0,
+    //         showinfo: 0,
+    //         rel: 0,
+    //         modestbranding: 0,
+    //         loop: 0,
+    //         mute: 1,
+    //         title: 0
+    //     },
+    // }
 
     const substring = (str: string, n: number) => {
         return (str?.length > n) ? str.substring(0, n - 1) + '...' : str
@@ -44,8 +44,8 @@ const HomeScreen: React.FC = () => {
                 </div>
 
                 <div className="movie-poster">
-                    <YouTube style={{ display: 'none' }} className="react-player" videoId="nFybJlICaR8" opts={opts} />
-                    <img src={POSTER_URL + movie?.backdrop_path} alt="poster-img" />
+                    {/* <YouTube style={{ display: 'none' }} className="react-player" videoId="nFybJlICaR8" opts={opts} /> */}
+                    {!!movie.backdrop_path && <img loading="lazy" src={POSTER_URL + movie?.backdrop_path} alt="poster-img" />}
 
                     <div className="movie-details">
                         <h1 className="movie-title">{movie?.original_title}</h1>
