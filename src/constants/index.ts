@@ -3,8 +3,8 @@ import axios from "axios";
 
 const { VITE_THE_MOVIE_DB_API_KEY } = import.meta.env
 
-export const Axios = (url: string) => axios.create({
-    baseURL: `https://api.themoviedb.org/3${url}?api_key=${VITE_THE_MOVIE_DB_API_KEY}`,
+export const Axios = (url: string, querySimbol = "?") => axios.create({
+    baseURL: `https://api.themoviedb.org/3${url}${querySimbol}api_key=${VITE_THE_MOVIE_DB_API_KEY}`,
 })
 
 
@@ -27,3 +27,8 @@ export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
 
     return listMovies
 })
+
+
+export const substring = (str: string, n: number) => {
+    return (str?.length > n) ? str.substring(0, n - 1) + '...' : str
+}

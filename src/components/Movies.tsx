@@ -1,7 +1,6 @@
 import '@styles/Movies.scss'
 import { Axios, POSTER_URL } from "@constants"
-import { FetchContext, FetchContextType } from "@contexts"
-import { useContext, useState } from "react"
+import { useEffect, useState } from "react"
 import { Dropdown, MenuProps } from 'antd'
 import YouTube from 'react-youtube'
 
@@ -13,10 +12,11 @@ type MovieType = {
 
 
 
-const Movies: React.FC<{ isPlayer?: boolean }> = ({ isPlayer }) => {
-    const promises: string[] = ["top", "popular", "upcoming", "playing"]
-    const { movies } = useContext<FetchContextType>(FetchContext)
+const Movies: React.FC<{ isPlayer?: boolean, movieId?: string }> = ({ isPlayer, movieId = "0" }) => {
     const [videoId, setVideoId] = useState<string>("")
+    const [movies, setMovies] = useState<any>([])
+    const [categories, setCategories] = useState<string[]>(["top", "popular", "upcoming", "playing"])
+
 
 
     const onClick = (movie: MovieType) => {
@@ -31,13 +31,42 @@ const Movies: React.FC<{ isPlayer?: boolean }> = ({ isPlayer }) => {
         })
     }
 
+    const fetchMovies = async () => {
+        const listMovies: any[] = []
+        const top = await Axios("/movie/top_rated").get("")
+        const upcoming = await Axios("/movie/upcoming").get("")
+        const popular = await Axios("/movie/popular").get("")
+        const playing = await Axios("/movie/now_playing").get("")
+
+        if (isPlayer) {
+            const similar = await Axios("/movie/" + movieId + "/similar").get("")
+            console.log([similar.data.results]);
+            
+            setCategories(["similar movies", ...categories])
+            listMovies.push(similar.data.results)
+        }
+
+        const queries = [top, popular, upcoming, playing]
+
+        const results = await Promise.all(queries)
+        results.forEach((result) => {
+            listMovies.push(result.data.results)
+        })
+
+        setMovies(listMovies)
+    }
+
+    useEffect(() => {
+        fetchMovies()
+    }, [])
+
 
     const items: MenuProps['items'] = [
         {
-            key: '0',
+            key: Date.now().toString(),
             label: (
                 <div style={{ borderRadius: 20, height: 300 }} >
-                    <YouTube                       
+                    <YouTube
                         videoId={videoId}
                         onReady={(e) => e.target.playVideo()}
                         opts={{
@@ -60,16 +89,15 @@ const Movies: React.FC<{ isPlayer?: boolean }> = ({ isPlayer }) => {
         }
     ]
 
-
     return (
         <div className="movies" style={{ top: isPlayer ? 0 : -300, paddingTop: 50 }}>
-            {movies?.map((list: any, key: number) => (
-                <div key={key + "movie-list"}>
-                    <h1>{promises[key]}</h1>
-                    <div className="movie-list">
+            {movies.map((list: any, key: number) => (
+                <div key={key + "movie-list" + Date.now()}>
+                    <h1>{categories[key]}</h1>
+                    <div className="movie-list d-flex">
                         {list.map((movie: any, index: number) => (
-                            <Dropdown menu={{ items }} onOpenChange={() => onOpenChange(movie)} overlayClassName='movie-dropdown' destroyPopupOnHide>
-                                <div onClick={() => onClick(movie)} key={index + "movie"} className="movie">
+                            <Dropdown key={index + "movie"} trigger={['click']} menu={{ items }} onOpenChange={() => onOpenChange(movie)} overlayClassName='movie-dropdown' destroyPopupOnHide>
+                                <div onClick={() => onClick(movie)} className="movie">
                                     <img src={POSTER_URL + movie?.poster_path} alt="movie" />
                                 </div>
                             </Dropdown>

@@ -2,7 +2,7 @@
     width: 100%;
     padding: 20px 5%;
     z-index: 1000;
-    
+
     display: flex;
     justify-content: space-between;
 
@@ -20,6 +20,8 @@
     }
 
     .right {
+        display: flex;
+
         img {
             border-radius: 5px;
             box-shadow: 0 0 5 1px black;
@@ -30,9 +32,36 @@
                 transition: 0.2s;
             }
         }
+
+        input {
+            height: 35px;
+            width: 300px;
+            margin-right: 10px;
+            background: rgba(36, 36, 36, 1);
+            border: none;
+            outline: none;
+            padding: 0 10px;
+            color: white;
+            border-radius: 0.1875rem;
+            box-shadow: 0 0 5 1px black;
+
+
+            &::placeholder {
+                color: white;
+            }
+        }
     }
 
 
+    
+    
+}
+
+.searched-movie-logo {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+    margin-right: 10px;
 }
 
 :where(.css-dev-only-do-not-override-nllxry).ant-dropdown .ant-dropdown-menu,
@@ -41,13 +70,12 @@
     color: white !important;
 
     .logout {
-        
+
         &:hover {
             cursor: pointer;
             opacity: 0.8;
             transition: 0.3s;
-           
+
         }
     }
 }
-

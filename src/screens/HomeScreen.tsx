@@ -1,13 +1,13 @@
 import "@styles/HomeScreen.scss"
 import { Header, Movies } from "@components";
-import { POSTER_URL } from "@constants";
-import { useContext } from "react";
-import { FetchContext, FetchContextType } from "@contexts";
+import { Axios, POSTER_URL } from "@constants";
+import { useEffect, useState } from "react";
 
 
 
 const HomeScreen: React.FC = () => {
-    const { movie } = useContext<FetchContextType>(FetchContext)
+    const [movie, setMovie] = useState<any>({})
+
 
     const onPlay = () => {
         const title = movie?.title.toLowerCase().replace(/[ ]/g, '-')
@@ -18,6 +18,21 @@ const HomeScreen: React.FC = () => {
     const substring = (str: string, n: number) => {
         return (str?.length > n) ? str.substring(0, n - 1) + '...' : str
     }
+
+    const fetchRamdomMovies = async () => {
+
+        const discover = await Axios("/discover/movie").get("")
+
+        const getRamdomNumber = (length: number = discover.data.results.length) => {
+            return Math.floor(Math.random() * length)
+        }
+
+        setMovie(discover.data.results[getRamdomNumber(discover.data.results.length)])
+    }
+
+    useEffect(() => {
+        fetchRamdomMovies()
+    }, [])
 
     return (
         <div className="HomeScreen">
