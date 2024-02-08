@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const { VITE_THE_MOVIE_DB_API_KEY, PROD } = import.meta.env
+const { VITE_THE_MOVIE_DB_API_KEY } = import.meta.env
 
 
-const API_KEY = PROD ? process.env.VITE_THE_MOVIE_DB_API_KEY : VITE_THE_MOVIE_DB_API_KEY
+// const API_KEY = PROD ? process.env.VITE_THE_MOVIE_DB_API_KEY : VITE_THE_MOVIE_DB_API_KEY
 export const Axios = (url: string) => axios.create({
-    baseURL: `https://api.themoviedb.org/3${url}?api_key=${API_KEY}`,
+    baseURL: `https://api.themoviedb.org/3${url}?api_key=${VITE_THE_MOVIE_DB_API_KEY}`,
 })
 
 
