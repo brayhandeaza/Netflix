@@ -3,15 +3,12 @@ import axios from "axios";
 
 const { VITE_THE_MOVIE_DB_API_KEY } = import.meta.env
 
-
-// const API_KEY = PROD ? process.env.VITE_THE_MOVIE_DB_API_KEY : VITE_THE_MOVIE_DB_API_KEY
 export const Axios = (url: string) => axios.create({
     baseURL: `https://api.themoviedb.org/3${url}?api_key=${VITE_THE_MOVIE_DB_API_KEY}`,
 })
 
 
 export const POSTER_URL = "https://image.tmdb.org/t/p/original/";
-
 
 
 export const fetchMovies = createAsyncThunk("movies/fetchMovies", async () => {
