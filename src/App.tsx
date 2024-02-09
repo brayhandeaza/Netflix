@@ -1,5 +1,5 @@
 import '@styles/App.scss'
-import { LandingScreen, HomeScreen } from '@screens'
+import { LandingScreen, HomeScreen, NotFound } from '@screens'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { useContext } from 'react'
 import { MainContext, MainContextType } from './contexts/MainContext'
@@ -25,6 +25,7 @@ const App: React.FC = () => {
 							<Route path="/login" element={<Login />} />
 						</Route>
 					)}
+					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

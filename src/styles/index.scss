@@ -31,3 +31,21 @@
 .ant-dropdown-menu {
 	background: rgb(0, 0, 0) !important;
 }
+
+
+button {
+	height: 55px;
+	background: #e50914 !important;
+	font-weight: 600;
+	border: none;
+	color: white !important;
+	font-weight: bold;
+	border-radius: 0.1875rem;
+
+	&:hover {
+		cursor: pointer;
+		color: white !important;
+		opacity: 0.8;
+		transition: 0.2s;
+	}
+}

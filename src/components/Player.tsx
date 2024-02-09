@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { Header, Movies } from "@components"
 import { useParams } from "react-router-dom"
 import ReactPlayer from 'react-player/youtube'
-import { Button, Result } from 'antd';
+import { Result } from 'antd';
 
 const Player: React.FC = () => {
     const [videoId, setVideoId] = useState<string>("")
@@ -32,7 +32,7 @@ const Player: React.FC = () => {
                         status={404}
                         title={<h1 style={{ color: 'white' }}>404</h1>}
                         subTitle={<h4 style={{ color: 'white' }}>Movie trailer not found</h4>}
-                        extra={<Button onClick={() => window.location.href = "/"} type="primary">Back Home</Button>}
+                        extra={<button style={{ width: '150px' }} className="theme-btn" onClick={() => window.location.href = "/"}>Back Home</button>}
                     />
                 </div>
             ) : (

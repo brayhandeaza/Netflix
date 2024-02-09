@@ -18,7 +18,6 @@ const Movies: React.FC<{ isPlayer?: boolean, movieId?: string }> = ({ isPlayer, 
     const [categories, setCategories] = useState<string[]>(["top", "popular", "upcoming", "playing"])
 
 
-
     const onClick = (movie: MovieType) => {
         const title = movie?.title?.replace(/[ ]/g, '-').toLocaleLowerCase()
         window.location.href = `/watch/${movie?.id}/${title}`
@@ -40,7 +39,7 @@ const Movies: React.FC<{ isPlayer?: boolean, movieId?: string }> = ({ isPlayer, 
 
         if (isPlayer) {
             const similar = await Axios("/movie/" + movieId + "/similar").get("")
-            
+
             setCategories(["similar movies", ...categories])
             listMovies.push(similar.data.results)
         }
@@ -91,11 +90,11 @@ const Movies: React.FC<{ isPlayer?: boolean, movieId?: string }> = ({ isPlayer, 
     return (
         <div className="movies" style={{ top: isPlayer ? 0 : -300, paddingTop: 50 }}>
             {movies.map((list: any, key: number) => (
-                <div key={key + "movie-list" + Date.now()}>
+                <div key={key + "movie-list"}>
                     <h1>{categories[key]}</h1>
                     <div className="movie-list d-flex">
-                        {list.map((movie: any, index: number) => (
-                            <Dropdown key={index + "movie"} trigger={['click']} menu={{ items }} onOpenChange={() => onOpenChange(movie)} overlayClassName='movie-dropdown' destroyPopupOnHide>
+                        {list.map((movie: any) => (
+                            <Dropdown key={movie?.id} trigger={['hover']} menu={{ items }} onOpenChange={() => onOpenChange(movie)} overlayClassName='movie-dropdown' destroyPopupOnHide>
                                 <div onClick={() => onClick(movie)} className="movie">
                                     <img src={POSTER_URL + movie?.poster_path} alt="movie" />
                                 </div>
