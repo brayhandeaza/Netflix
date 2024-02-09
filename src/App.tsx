@@ -25,7 +25,7 @@ const App: React.FC = () => {
 							<Route path="/login" element={<Login />} />
 						</Route>
 					)}
-					<Route path="*" element={<NotFound />} />
+					<Route path="*" element={<NotFound subTitle='Page not found' />} />
 				</Routes>
 			</BrowserRouter>
 		</div>

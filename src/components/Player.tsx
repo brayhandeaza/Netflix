@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react"
 import { Header, Movies } from "@components"
 import { useParams } from "react-router-dom"
 import ReactPlayer from 'react-player/youtube'
-import { Result } from 'antd';
+import { NotFound } from "@screens"
 
 const Player: React.FC = () => {
     const [videoId, setVideoId] = useState<string>("")
@@ -26,14 +26,7 @@ const Player: React.FC = () => {
 
             {!!!videoId ? (
                 <div className="pt-5">
-                    <Result
-                        style={{ width: '100%', height: '100%' }}
-                        className="mt-5"
-                        status={404}
-                        title={<h1 style={{ color: 'white' }}>404</h1>}
-                        subTitle={<h4 style={{ color: 'white' }}>Movie trailer not found</h4>}
-                        extra={<button style={{ width: '150px' }} className="theme-btn" onClick={() => window.location.href = "/"}>Back Home</button>}
-                    />
+                    <NotFound subTitle="Movie trailer not found" />
                 </div>
             ) : (
                 <ReactPlayer

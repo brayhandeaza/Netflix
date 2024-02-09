@@ -1,7 +1,11 @@
 import { Result } from 'antd';
 import { useEffect } from 'react';
 
-export default () => (
+type Props = {
+    subTitle: string
+}
+
+const NotFound: React.FC<Props> = ({ subTitle }: Props) => (
     useEffect(() => {
         if (window.location.pathname === "/login")
             window.location.href = "/"
@@ -13,10 +17,12 @@ export default () => (
         className="mt-5"
         status={404}
         title={<h1 style={{ color: 'white' }}>404</h1>}
-        subTitle={<h4 style={{ color: 'white' }}>Movie trailer not found</h4>}
+        subTitle={<h4 style={{ color: 'white' }}>{subTitle}</h4>}
         extra={
             <button style={{ width: '150px' }} className="theme-btn" onClick={() => window.location.href = "/"}>Back Home</button>
         }
     />
 );
 
+
+export default NotFound
