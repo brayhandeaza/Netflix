@@ -40,7 +40,6 @@ const Movies: React.FC<{ isPlayer?: boolean, movieId?: string }> = ({ isPlayer, 
 
         if (isPlayer) {
             const similar = await Axios("/movie/" + movieId + "/similar").get("")
-            console.log([similar.data.results]);
             
             setCategories(["similar movies", ...categories])
             listMovies.push(similar.data.results)
